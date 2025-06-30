@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Primary Meta Tags -->
+  <title>Global Holiday Calendar 2025</title>
+  <meta name="description" content="Browse holidays in Sri Lanka, the US, Australia, Canada or the UK via our interactive calendar or list. Fully responsive and SEO-optimized." />
+  <link rel="canonical" href="https://someordinarybro.github.io/poya-day/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Global Holiday Calendar 2025" />
+  <meta property="og:description" content="Interactive holiday calendar & list for Sri Lanka, US, Australia, Canada, and the UK." />
+  <meta property="og:image" content="https://someordinarybro.github.io/poya-day/assets/poya-preview.png" />
+  <meta property="og:url" content="https://someordinarybro.github.io/poya-day/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Global Holiday Calendar 2025" />
+  <meta name="twitter:description" content="Interactive holiday calendar & list for Sri Lanka, US, Australia, Canada, and the UK." />
+  <meta name="twitter:image" content="https://someordinarybro.github.io/poya-day/assets/poya-preview.png" />
+
+  <!-- Favicons & PWA Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/android-chrome-512x512.png" />
+  <link rel="manifest" href="assets/site.webmanifest" />
+  <meta name="msapplication-TileColor" content="#2b5797" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <!-- Fonts & Tailwind -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' };</script>
+</head>
+<body class="dark bg-gray-900 text-gray-100 font-sans antialiased flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-gray-800 shadow-md">
+    <nav class="flex items-center p-4">
+      <a href="https://github.com/SomeOrdinaryBro" class="flex items-center text-sm text-gray-300 hover:text-white">
+        <img src="assets/github_logo/github-mark-white.svg" alt="GitHub" class="w-5 h-5 mr-2" />
+        @SomeOrdinaryBro
+      </a>
+      <div class="flex-1"></div>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow flex flex-col items-center p-4 gap-4 overflow-y-auto">
+    <h1 class="text-2xl sm:text-4xl font-semibold text-center mt-6">Global Holiday Calendar 2025</h1>
+
+    <!-- Controls -->
+    <section class="w-full max-w-3xl bg-gray-800 rounded-lg shadow-xl p-4 mt-6">
+      <div class="flex flex-wrap justify-center gap-2">
+        <select id="countrySelect" class="bg-gray-700 text-gray-200 px-2 py-1 rounded-md text-sm">
+          <option value="SL">Sri Lanka</option>
+          <option value="US">United States</option>
+          <option value="AU">Australia</option>
+          <option value="CA">Canada</option>
+          <option value="GB">United Kingdom</option>
+        </select>
+        <select id="yearSelect" class="bg-gray-700 text-gray-200 px-2 py-1 rounded-md text-sm"></select>
+        <select id="monthSelect" class="bg-gray-700 text-gray-200 px-2 py-1 rounded-md text-sm"></select>
+        <button id="calendarViewBtn" class="px-3 py-1 bg-yellow-500 text-gray-900 rounded-md text-sm">Calendar</button>
+        <button id="holidayViewBtn" class="px-3 py-1 bg-gray-700 text-gray-200 rounded-md text-sm">List</button>
+        <button id="allViewBtn" class="px-3 py-1 bg-gray-700 text-gray-200 rounded-md text-sm">All Months</button>
+        <button id="exportCsvBtn" class="px-3 py-1 bg-green-500 text-gray-900 rounded-md text-sm">Export CSV</button>
+      </div>
+    </section>
+
+    <!-- Data Views -->
+    <section id="calendarContainer" class="w-full max-w-3xl overflow-x-auto"></section>
+    <section id="holidayTableContainer" class="w-full max-w-3xl hidden overflow-x-auto "></section>
+
+    <!-- Next Holiday Section -->
+    <section id="nextHolidayContainer" class="w-full max-w-3xl bg-gray-800 rounded-lg shadow-xl p-4 mt-6 text-center mt-6">
+      <span class="text-lg font-medium">Next Holiday:</span>
+      <span id="nextHolidayText" class="ml-2 text-lg"></span>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 py-4">
+    <div class="max-w-4xl mx-auto text-center text-gray-400 text-sm">
+      &copy; 2025 Global Holiday Calendar by Sajid
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

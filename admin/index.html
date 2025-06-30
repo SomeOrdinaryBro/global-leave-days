@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Out!</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' };</script>
+</head>
+<body class="dark bg-gray-900 text-gray-100 font-sans antialiased flex items-center justify-center min-h-screen p-4">
+  <div class="text-center space-y-6">
+    <p class="text-4xl font-extrabold text-red-600">🚨 Aaaah aahh ahh… NO NO! 🚨</p>
+    <p class="text-xl">What are you doing here, fam? This isn't the main page.</p>
+    <p class="text-xl">Bro thinks he's a hacker 💔🥀 LMAO 😔</p>
+    <p class="italic text-gray-400">(Seriously, GO BACK or else! 😉)</p>
+    <button onclick="window.location.href='https://someordinarybro.github.io/poya-day/'" class="mt-2 px-6 py-3 bg-yellow-500 text-gray-900 rounded-md font-semibold hover:bg-yellow-600">
+      Go Back to Safety
+    </button>
+    <!-- Warning and user info display -->
+    <p id="userInfo" class="mt-6 text-3xl font-extrabold text-red-400"></p>
+  </div>
+
+  <script>
+    const userInfoEl = document.getElementById('userInfo');
+    // Fetch IP and location info
+    fetch('https://ipapi.co/json/')
+      .then(res => res.json())
+      .then(data => {
+        const { ip, city, region, country_name: country } = data;
+        const ua = navigator.userAgent;
+        userInfoEl.innerHTML = 
+          `⚠️ WARNING! Your IP <strong>${ip}</strong> from <strong>${city}, ${region}, ${country}</strong> has been logged for review.<br>User Agent: <em>${ua}</em>`;
+      })
+      .catch(() => {
+        userInfoEl.textContent = 
+          '⚠️ WARNING! Suspicious access detected; your activity is under review.';
+      });
+  </script>
+</body>
+</html>

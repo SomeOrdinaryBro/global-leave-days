@@ -1,0 +1,12 @@
+robots.txt for Global Holiday Calendar
+
+User-agent: *
+Allow: /
+
+We intentionally leave /admin/ open as a honeypot
+We intentionally leave /backup/ open as a honeypot
+We intentionally leave /database/ open as a honeypot
+We intentionally leave /logs/ open as a honeypot
+
+Sitemap location\ nSitemap: https://someordinarybro.github.io/poya-day/sitemap.xml
+
