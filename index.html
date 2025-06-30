@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -34,64 +34,60 @@
   <meta name="msapplication-TileColor" content="#2b5797" />
   <meta name="theme-color" content="#ffffff" />
 
-  <!-- Fonts & Tailwind -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config = { darkMode: 'class' };</script>
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
-<body class="dark bg-gray-900 text-gray-100 font-sans antialiased flex flex-col min-h-screen">
+<body>
 
   <!-- Header -->
-  <header class="bg-gray-800 shadow-md">
-    <nav class="flex items-center p-4">
-      <a href="https://github.com/SomeOrdinaryBro" class="flex items-center text-sm text-gray-300 hover:text-white">
-        <img src="assets/github_logo/github-mark-white.svg" alt="GitHub" class="w-5 h-5 mr-2" />
+  <header>
+    <nav>
+      <a href="https://github.com/SomeOrdinaryBro">
+        <img src="assets/github_logo/github-mark-white.svg" alt="GitHub" style="width:20px;height:20px;margin-right:0.5rem;vertical-align:middle;" />
         @SomeOrdinaryBro
       </a>
-      <div class="flex-1"></div>
+      <div style="flex:1"></div>
     </nav>
   </header>
 
   <!-- Main Content -->
-  <main class="flex-grow flex flex-col items-center p-4 gap-4 overflow-y-auto">
-    <h1 class="text-2xl sm:text-4xl font-semibold text-center mt-6">Global Holiday Calendar 2025</h1>
+  <main>
+    <h1>Global Holiday Calendar 2025</h1>
 
     <!-- Controls -->
-    <section class="w-full max-w-3xl bg-gray-800 rounded-lg shadow-xl p-4 mt-6">
-      <div class="flex flex-wrap justify-center gap-2">
-        <select id="countrySelect" class="bg-gray-700 text-gray-200 px-2 py-1 rounded-md text-sm">
+    <section class="glass-card">
+      <div class="controls">
+        <select id="countrySelect">
           <option value="SL">Sri Lanka</option>
           <option value="US">United States</option>
           <option value="AU">Australia</option>
           <option value="CA">Canada</option>
           <option value="GB">United Kingdom</option>
         </select>
-        <select id="yearSelect" class="bg-gray-700 text-gray-200 px-2 py-1 rounded-md text-sm"></select>
-        <select id="monthSelect" class="bg-gray-700 text-gray-200 px-2 py-1 rounded-md text-sm"></select>
-        <button id="calendarViewBtn" class="px-3 py-1 bg-yellow-500 text-gray-900 rounded-md text-sm">Calendar</button>
-        <button id="holidayViewBtn" class="px-3 py-1 bg-gray-700 text-gray-200 rounded-md text-sm">List</button>
-        <button id="allViewBtn" class="px-3 py-1 bg-gray-700 text-gray-200 rounded-md text-sm">All Months</button>
-        <button id="exportCsvBtn" class="px-3 py-1 bg-green-500 text-gray-900 rounded-md text-sm">Export CSV</button>
+        <select id="yearSelect"></select>
+        <select id="monthSelect"></select>
+        <button id="calendarViewBtn" class="active">Calendar</button>
+        <button id="holidayViewBtn">List</button>
+        <button id="allViewBtn">All Months</button>
+        <button id="exportCsvBtn">Export CSV</button>
       </div>
     </section>
 
     <!-- Data Views -->
-    <section id="calendarContainer" class="w-full max-w-3xl overflow-x-auto"></section>
-    <section id="holidayTableContainer" class="w-full max-w-3xl hidden overflow-x-auto "></section>
+    <section id="calendarContainer"></section>
+    <section id="holidayTableContainer" class="hidden"></section>
 
     <!-- Next Holiday Section -->
-    <section id="nextHolidayContainer" class="w-full max-w-3xl bg-gray-800 rounded-lg shadow-xl p-4 mt-6 text-center mt-6">
-      <span class="text-lg font-medium">Next Holiday:</span>
-      <span id="nextHolidayText" class="ml-2 text-lg"></span>
+    <section id="nextHolidayContainer" class="glass-card" style="text-align:center;">
+      <span>Next Holiday:</span>
+      <span id="nextHolidayText" style="margin-left:0.5rem;"></span>
     </section>
 
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 py-4">
-    <div class="max-w-4xl mx-auto text-center text-gray-400 text-sm">
+  <footer>
+    <div>
       &copy; 2025 Global Holiday Calendar by Sajid
     </div>
   </footer>

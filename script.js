@@ -61,17 +61,15 @@ function createCalendar(m, y, days) {
       : null;
     const hol = day && days.find(x => x.date === id);
     cells += `
-      <div class="relative bg-gray-800 p-2 h-16 flex flex-col items-center justify-center text-sm ${
-        hol ? 'before:absolute before:inset-0 before:bg-yellow-600 before:bg-opacity-75 before:rounded-lg' : ''
-      }">
-        <span class="${hol ? 'relative text-white font-semibold' : ''}">${day}</span>
-        ${hol ? `<span class="relative text-2xs mt-1 text-white">${hol.name}</span>` : ''}
+      <div class="cal-cell ${hol ? 'holiday' : ''}">
+        <span>${day}</span>
+        ${hol ? `<span>${hol.name}</span>` : ''}
       </div>`;
   }
   const hdr = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
-    .map(d => `<div class="bg-gray-800 p-2 text-center text-xs font-semibold text-gray-400">${d}</div>`)
+    .map(d => `<div class="cal-header">${d}</div>`)
     .join("");
-  return `<div class="grid grid-cols-7 gap-px bg-gray-700 rounded-lg overflow-hidden">${hdr}${cells}</div>`;
+  return `<div class="cal-grid">${hdr}${cells}</div>`;
 }
 
 function createList(days) {
@@ -79,22 +77,22 @@ function createList(days) {
     const dt = new Date(h.date);
     const monthName = dt.toLocaleString("default", { month: "long" });
     return `
-      <tr class="odd:bg-gray-800 even:bg-gray-700 hover:bg-gray-600">
-        <td class="px-3 py-2 text-sm">${monthName}</td>
-        <td class="px-3 py-2 text-sm">${dt.toLocaleDateString()}</td>
-        <td class="px-3 py-2 text-sm">${dt.toLocaleString("default",{weekday:"short"})}</td>
-        <td class="px-3 py-2 text-sm">${h.name}</td>
+      <tr>
+        <td>${monthName}</td>
+        <td>${dt.toLocaleDateString()}</td>
+        <td>${dt.toLocaleString("default",{weekday:"short"})}</td>
+        <td>${h.name}</td>
       </tr>`;
   }).join("");
 
   return `
-    <table class="w-full rounded-lg shadow-lg overflow-hidden">
+    <table class="glass-card">
       <thead>
-        <tr class="bg-gray-800">
-          <th class="px-3 py-2 text-sm text-left">Month</th>
-          <th class="px-3 py-2 text-sm text-left">Date</th>
-          <th class="px-3 py-2 text-sm text-left">Day</th>
-          <th class="px-3 py-2 text-sm text-left">Holiday</th>
+        <tr>
+          <th>Month</th>
+          <th>Date</th>
+          <th>Day</th>
+          <th>Holiday</th>
         </tr>
       </thead>
       <tbody>
@@ -142,13 +140,9 @@ async function render() {
 }
 
 function updateButtons() {
-  [calendarBtn, listBtn, allBtn].forEach(b => {
-    b.classList.replace("bg-yellow-500", "bg-gray-700");
-    b.classList.replace("text-gray-900", "text-gray-200");
-  });
+  [calendarBtn, listBtn, allBtn].forEach(b => b.classList.remove("active"));
   const active = all ? allBtn : (view === "calendar" ? calendarBtn : listBtn);
-  active.classList.replace("bg-gray-700", "bg-yellow-500");
-  active.classList.replace("text-gray-200", "text-gray-900");
+  active.classList.add("active");
 }
 
 function toggleView(v, isAll = false) {
