@@ -63,7 +63,7 @@ function createCalendar(m, y, days) {
     cells += `
       <div class="cal-cell ${hol ? 'holiday' : ''}">
         <span>${day}</span>
-        ${hol ? `<span>${hol.name}</span>` : ''}
+        ${hol ? `<span class="holiday-name">${hol.name}</span>` : ''}
       </div>`;
   }
   const hdr = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]

@@ -21,16 +21,40 @@ header {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   background: rgba(255,255,255,0.1);
   border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
-nav {
+.container {
   max-width: 960px;
   margin: 0 auto;
+  padding: 0 1rem;
+}
+
+nav {
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 1rem 0;
+}
+
+.github-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.github-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none;
+  transition: box-shadow 0.3s;
+}
+
+.github-link:hover {
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
 }
 
 main {
@@ -49,8 +73,9 @@ h1 {
 }
 
 .glass-card {
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.12);
   border-radius: 20px;
   border: 1px solid rgba(255,255,255,0.2);
   box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
@@ -71,10 +96,11 @@ select,
 button {
   padding: 0.5rem 1rem;
   border-radius: 10px;
-  border: none;
+  border: 1px solid rgba(255,255,255,0.3);
   background: rgba(255,255,255,0.15);
   color: #fff;
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 button {
@@ -84,7 +110,8 @@ button {
 
 button:hover {
   transform: scale(1.05);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px) brightness(1.1);
+  -webkit-backdrop-filter: blur(15px) brightness(1.1);
 }
 
 button.active {
@@ -110,6 +137,7 @@ button.active {
   height: 80px;
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -117,6 +145,11 @@ button.active {
   justify-content: center;
   font-size: 0.9rem;
   text-align: center;
+  transition: background 0.2s;
+}
+
+.cal-cell:hover {
+  background: rgba(255,255,255,0.2);
 }
 
 .cal-cell.holiday::before {
@@ -127,8 +160,15 @@ button.active {
   border-radius: 10px;
 }
 
-.cal-cell.holiday span {
+.cal-cell .holiday-name {
   position: relative;
+  font-size: 0.65rem;
+  margin-top: 2px;
+  padding: 2px 6px;
+  border-radius: 10px;
+  background: rgba(255,215,0,0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   font-weight: 600;
 }
 
@@ -158,6 +198,21 @@ tbody tr:nth-child(odd) {
   background: rgba(255,255,255,0.05);
 }
 
+tbody tr:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+#nextHolidayContainer {
+  text-align: center;
+  font-weight: 600;
+}
+
+#nextHolidayContainer span:last-child {
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
 footer {
   backdrop-filter: blur(10px);
   background: rgba(255,255,255,0.1);
@@ -177,6 +232,16 @@ footer {
 
   .cal-cell {
     height: 60px;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  select,
+  button {
+    width: 100%;
   }
 }
 .hidden{display:none;}
