@@ -1,0 +1,182 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, #4b6cb7, #182848);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+nav {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+h1 {
+  font-weight: 600;
+  margin-top: 2rem;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+.glass-card {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 960px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+select,
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+button {
+  cursor: pointer;
+  transition: transform 0.2s, backdrop-filter 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  backdrop-filter: blur(15px);
+}
+
+button.active {
+  background: rgba(255,255,255,0.3);
+  color: #000;
+}
+
+#calendarContainer,
+#holidayTableContainer {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 960px;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.cal-cell {
+  position: relative;
+  height: 80px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.cal-cell.holiday::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,215,0,0.3);
+  border-radius: 10px;
+}
+
+.cal-cell.holiday span {
+  position: relative;
+  font-weight: 600;
+}
+
+.cal-header {
+  font-weight: 600;
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 0.25rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.2);
+}
+
+th, td {
+  padding: 0.5rem;
+  text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+  background: rgba(255,255,255,0.05);
+}
+
+footer {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.1);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .cal-cell {
+    height: 60px;
+  }
+}
+.hidden{display:none;}
